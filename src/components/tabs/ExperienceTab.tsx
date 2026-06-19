@@ -8,7 +8,7 @@ const experiences = [
   {
     role: "Research & Development Engineer (Personal Health Care)",
     org: "Procter & Gamble",
-    logoUrl: "/images/P&G logo.jpeg",
+    logoUrl: "/someshsaini/images/P&G logo.jpeg",
     period: "May 2026 - Present",
     description: [
       "Engineered orchestrated multi-agent AI workflows for Personal Health Care R&D, integrating experimental, biomarker, and consumer health datasets to autonomously generate product insights.",
@@ -19,7 +19,7 @@ const experiences = [
   {
     role: "Clinical AI Researcher",
     org: "One Heart Health",
-    logoUrl: "/images/onehearthealht logo.jpeg",
+    logoUrl: "/someshsaini/images/onehearthealht logo.jpeg",
     period: "Nov 2025 - Present",
     description: [
       "Fine-tuned Audio Spectrogram Transformers on pediatric phonocardiograms to enhance congenital heart disease screening in low-resource clinics globally.",
@@ -27,12 +27,12 @@ const experiences = [
     ],
     tags: ["Deep Learning", "Transformers", "Global Health", "Clinical AI"],
     paperLink: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6749564",
-    paperImage: "/images/OHH preprint paper screenshot.jpeg"
+    paperImage: "/someshsaini/images/OHH preprint paper screenshot.jpeg"
   },
   {
     role: "Machine Learning Researcher",
     org: "Cleveland Clinic",
-    logoUrl: "/images/cleveland clininc logo.jpeg",
+    logoUrl: "/someshsaini/images/cleveland clininc logo.jpeg",
     period: "Jan 2025 - Present",
     description: [
       "Developed a deep learning pipeline using PyTorch 1D CNNs to capture temporal patterns in 12-lead ECGs for early Chagas disease risk stratification.",
@@ -40,12 +40,12 @@ const experiences = [
     ],
     tags: ["PyTorch", "ECG", "Deep Learning", "Research"],
     paperLink: "https://www.cinc.org/archives/2025/pdf/CinC2025-408.pdf",
-    paperImage: "/images/clevlenad clinic research paper cinc 2025.jpeg"
+    paperImage: "/someshsaini/images/clevlenad clinic research paper cinc 2025.jpeg"
   },
   {
     role: "Co-Founder & Technical Lead",
     org: "Vocalis",
-    logoUrl: "/images/vocalis logo.png",
+    logoUrl: "/someshsaini/images/vocalis logo.png",
     period: "2024 - Present",
     description: [
       "Leading technical development and business strategy for an AI receptionist and comprehensive AI suite designed to reduce administrative bottlenecks in community-based clinics.",
@@ -57,7 +57,7 @@ const experiences = [
   {
     role: "Research & Development Engineer (Fabric Care)",
     org: "Procter & Gamble",
-    logoUrl: "/images/P&G logo.jpeg",
+    logoUrl: "/someshsaini/images/P&G logo.jpeg",
     period: "May 2025 - Aug 2025",
     description: [
       "Led product development on a functional fiber detergent platform, executing 20+ experiments on multi-surfactant systems to improve cleaning performance.",
@@ -68,7 +68,7 @@ const experiences = [
   {
     role: "Data Security Analyst",
     org: "Webacy",
-    logoUrl: "/images/webacy logo.jpeg",
+    logoUrl: "/someshsaini/images/webacy logo.jpeg",
     period: "Sep 2024 - Oct 2024",
     description: [
       "Conducted smart contract risk analysis and built unsupervised machine learning models for Web3 security applications."
@@ -78,7 +78,7 @@ const experiences = [
   {
     role: "Child Life Assistant Volunteer",
     org: "University Hospitals",
-    logoUrl: "/images/university hopsitals logo.jpg",
+    logoUrl: "/someshsaini/images/university hopsitals logo.jpg",
     period: "Aug 2024 - Present",
     description: [
       "Providing pediatric oncology patients with meaningful care and support during their treatment."

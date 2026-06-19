@@ -21,8 +21,8 @@ const projects: Project[] = [
     title: "Vocalis Platform",
     description: "An AI tool startup for community-based medium-sized clinics. Backed by NSF I-Corps, Google Cloud, and the Veale Institute for Entrepreneurship.",
     tags: ["Entrepreneurship", "Healthcare", "AI/ML"],
-    image: "/images/vocalis_banner.jpg",
-    logo: "/images/vocalis logo.png",
+    image: "/someshsaini/images/vocalis_banner.jpg",
+    logo: "/someshsaini/images/vocalis logo.png",
     content: (
       <div className="space-y-6 text-[#404040]">
         <h2 className="text-xl font-bold text-[#171717] font-display">Overview</h2>
@@ -38,8 +38,8 @@ const projects: Project[] = [
     title: "Exploring ML Architectures for Cardiovascular Disease Detection",
     description: "Collaborated in a high-performance computing setting to compare Random Forest, Naive Bayes, KNN, SVM, and XGBoost on Kaggle and PTB-XL datasets, utilizing parallel processing for optimal hyperparameter tuning.",
     tags: ["Python", "HPC", "SVM", "XGBoost", "Parallel Computing"],
-    image: "/images/ml cardio logo.png",
-    logo: "/images/ml cardio logo.png",
+    image: "/someshsaini/images/ml cardio logo.png",
+    logo: "/someshsaini/images/ml cardio logo.png",
     content: (
       <div className="space-y-6 text-[#404040]">
         <h2 className="text-xl font-bold text-[#171717] font-display">Research Focus</h2>
@@ -56,8 +56,8 @@ const projects: Project[] = [
     title: "AI-Driven Mutual Fund Calculator",
     description: "Goldman Sachs Emerging Leaders Fellow project focused on building an AI-driven model for mutual fund portfolio allocation and investment strategy optimization. Developed and evaluated portfolio performance scenarios using data-driven methods and presented findings to Managing Directors at the Dallas office.",
     tags: ["Artificial Intelligence", "Financial Analysis", "Portfolio Strategy"],
-    image: "/images/goldman_sachs_banner.jpg",
-    logo: "/images/goldman sachs logo.png",
+    image: "/someshsaini/images/goldman_sachs_banner.jpg",
+    logo: "/someshsaini/images/goldman sachs logo.png",
     content: (
       <div className="space-y-6 text-[#404040]">
         <div className="text-sm font-semibold text-[#737373] uppercase tracking-wider mb-2">Dec 2025 – Apr 2026</div>

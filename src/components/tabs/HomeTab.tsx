@@ -37,7 +37,7 @@ export function HomeTab({ setActiveTab }: HomeTabProps) {
       icon={
         <div className="w-[78px] h-[78px] relative rounded shadow-sm border border-[rgba(55,53,47,0.1)] bg-white overflow-hidden">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/somesh saini headshot.jpg" alt="Somesh" className="w-full h-full object-cover" />
+          <img src="/someshsaini/images/somesh saini headshot.jpg" alt="Somesh" className="w-full h-full object-cover" />
         </div>
       }
       coverUrl="https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?q=80&w=2000&auto=format&fit=crop"
@@ -105,7 +105,7 @@ export function HomeTab({ setActiveTab }: HomeTabProps) {
         <div className="space-y-6">
           <div className="rounded-xl border border-[rgba(0,0,0,0.06)] p-2 shadow-sm bg-white">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/Somesh.jpg" alt="Somesh Portrait" className="w-full h-auto rounded-[8px]" />
+            <img src="/someshsaini/images/Somesh.jpg" alt="Somesh Portrait" className="w-full h-auto rounded-[8px]" />
           </div>
           
           <div className="rounded-xl border border-[rgba(0,0,0,0.06)] p-5 shadow-sm bg-white relative overflow-hidden group">

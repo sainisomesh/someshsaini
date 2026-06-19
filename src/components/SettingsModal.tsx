@@ -76,7 +76,7 @@ export function SettingsModal({ isOpen, onClose, setActiveTab }: SettingsModalPr
                     <div className="flex items-center gap-3 p-3 rounded-lg border border-[rgba(0,0,0,0.06)] bg-[#fafafa]">
                       <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold overflow-hidden shrink-0">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src="/images/somesh saini headshot.jpg" alt="Somesh" className="w-full h-full object-cover" />
+                        <img src="/someshsaini/images/somesh saini headshot.jpg" alt="Somesh" className="w-full h-full object-cover" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="text-[14px] font-semibold text-[#171717] truncate">Somesh Saini</div>

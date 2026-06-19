@@ -9,12 +9,12 @@ const interestsData = [
   {
     title: "Case Kismat Bollywood Fusion Dance Team",
     story: "Dancing has been a huge part of my college experience. Being part of Case Kismat allowed me to connect with my culture, perform on big stages, and build a family on campus. We blend various dance styles to create energetic and expressive performances. For Case Kismat, dancing is an integral part of my whole family, and we compete across the nation to showcase our talent.",
-    image: "/images/IMG_6840.JPG"
+    image: "/someshsaini/images/IMG_6840.JPG"
   },
   {
     title: "Reselling Shoes",
     story: "What started as a side hustle turned into a deep dive into market trends, supply chain, and entrepreneurship. Reselling sneakers taught me the fundamentals of buying low, selling high, and understanding consumer demand in a fast-paced market.",
-    image: "/images/IMG_8207.jpg"
+    image: "/someshsaini/images/IMG_8207.jpg"
   },
   {
     title: "Mowing Lawns",
@@ -85,7 +85,7 @@ export function AboutTab() {
           <div className="flex flex-col sm:flex-row items-start gap-6">
             <div className="w-16 h-16 rounded-[8px] bg-white border border-[rgba(0,0,0,0.06)] overflow-hidden flex items-center justify-center shadow-sm shrink-0 mt-1">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/cwru logo.avif" alt="CWRU Logo" className="w-full h-full object-cover object-center scale-[1.35]" />
+              <img src="/someshsaini/images/cwru logo.avif" alt="CWRU Logo" className="w-full h-full object-cover object-center scale-[1.35]" />
             </div>
             
             <div className="flex-1">

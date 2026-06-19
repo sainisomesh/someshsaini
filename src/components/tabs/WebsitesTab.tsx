@@ -11,21 +11,21 @@ const websites = [
     description: "Modern SaaS landing page featuring 3D scroll animations and dynamic visual storytelling.",
     link: "https://vocalis.cc/",
     tags: ["Next.js", "3D Animations", "SaaS", "Web Design"],
-    image: "/images/vocalis_landing.png"
+    image: "/someshsaini/images/vocalis_landing.png"
   },
   {
     title: "Poonam Dance",
     description: "Animated digital portfolio for a professional dancer and choreographer.",
     link: "http://poonamdance.com/",
     tags: ["Next.js", "Framer Motion", "TailwindCSS"],
-    image: "/images/poonamdance.png"
+    image: "/someshsaini/images/poonamdance.png"
   },
   {
     title: "Precision Heart Rhythm",
     description: "HIPAA-compliant digital platform for a cardiology practice with optimized local SEO.",
     link: "https://precisionheartrhythm.com",
     tags: ["React", "Healthcare UI", "Local SEO"],
-    image: "/images/precisionheart.png"
+    image: "/someshsaini/images/precisionheart.png"
   },
 ];
 
