@@ -84,7 +84,7 @@ export function HomeTab({ setActiveTab }: HomeTabProps) {
               <ArrowRight className="w-4 h-4 text-[#a3a3a3] group-hover:text-[#171717] group-hover:translate-x-1 transition-all" />
             </a>
             
-            <div onClick={() => setActiveTab && setActiveTab('Work')} className="flex items-center gap-4 p-3 rounded-xl border border-[rgba(0,0,0,0.06)] hover:shadow-subtle hover:border-[rgba(0,0,0,0.1)] transition-all group bg-white cursor-pointer">
+            <div onClick={() => setActiveTab && setActiveTab('Projects')} className="flex items-center gap-4 p-3 rounded-xl border border-[rgba(0,0,0,0.06)] hover:shadow-subtle hover:border-[rgba(0,0,0,0.1)] transition-all group bg-white cursor-pointer">
               <div className="p-2 rounded-full bg-indigo-50 text-indigo-600 group-hover:scale-110 transition-transform">
                 <Briefcase className="w-4 h-4" />
               </div>

@@ -13,7 +13,7 @@ import { ExperienceTab } from "@/components/tabs/ExperienceTab";
 import { ContactTab } from "@/components/tabs/ContactTab";
 import { WebsitesTab } from "@/components/tabs/WebsitesTab";
 
-const tabComponents: Record<TabId, React.ComponentType> = {
+const tabComponents: Record<TabId, React.ComponentType<any>> = {
   Home: HomeTab,
   About: AboutTab,
   Experience: ExperienceTab,
