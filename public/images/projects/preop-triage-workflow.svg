@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" role="img" aria-labelledby="title desc">
+  <title id="title">Pre-operative triage workflow</title>
+  <desc id="desc">Patient chart flows through evidence extraction and policy checks to a reviewable decision.</desc>
+  <defs>
+    <linearGradient id="background" x2="1" y2="1">
+      <stop stop-color="#eef4f2"/>
+      <stop offset="1" stop-color="#e9edf5"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="400" fill="url(#background)"/>
+  <g fill="#fff" stroke="#cbd5d1" stroke-width="2">
+    <rect x="80" y="125" width="215" height="150" rx="18"/>
+    <rect x="355" y="125" width="215" height="150" rx="18"/>
+    <rect x="630" y="125" width="215" height="150" rx="18"/>
+    <rect x="905" y="125" width="215" height="150" rx="18"/>
+  </g>
+  <g fill="#37574e" font-family="Arial, sans-serif" font-size="22" font-weight="700" text-anchor="middle">
+    <text x="187" y="195">Patient chart</text>
+    <text x="462" y="195">Quoted facts</text>
+    <text x="737" y="195">Policy checks</text>
+    <text x="1012" y="195">Review decision</text>
+  </g>
+  <g fill="#667a73" font-family="Arial, sans-serif" font-size="15" text-anchor="middle">
+    <text x="187" y="225">notes + records</text>
+    <text x="462" y="225">source verified</text>
+    <text x="737" y="225">deterministic rules</text>
+    <text x="1012" y="225">with audit trail</text>
+  </g>
+  <g fill="#76978b">
+    <path d="M313 193h23v-9l16 16-16 16v-9h-23z"/>
+    <path d="M588 193h23v-9l16 16-16 16v-9h-23z"/>
+    <path d="M863 193h23v-9l16 16-16 16v-9h-23z"/>
+  </g>
+</svg>

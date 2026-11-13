@@ -18,6 +18,59 @@ interface Project {
 
 const projects: Project[] = [
   {
+    title: "Pre-Op Triage Agent",
+    description: "Built an evidence-grounded pre-operative review system that turns patient charts into traceable scheduling decisions and nurse-ready follow-up items.",
+    tags: ["Clinical AI", "Python", "LLM", "Decision Support"],
+    image: "/someshsaini/images/projects/preop-triage-workflow.svg",
+    content: (
+      <div className="space-y-6 text-[#404040]">
+        <h2 className="text-xl font-bold text-[#171717] font-display">What I built</h2>
+        <p>I designed a two-stage system for pre-operative chart review. A constrained language-model call extracts facts from notes and documents with verbatim source quotes. A deterministic Python policy engine then checks documentation, vitals, medications, consent, procedure details, and timing to return READY, NEEDS_FOLLOW_UP, or NOT_CLEARED.</p>
+        <div className="grid gap-3 sm:grid-cols-3 text-sm" aria-label="Pre-operative triage workflow">
+          <div className="rounded-lg border border-[#e5e5e5] bg-white p-4"><strong className="block text-[#171717] mb-1">01 · Extract</strong>Structured facts and source quotes from the chart</div>
+          <div className="rounded-lg border border-[#e5e5e5] bg-white p-4"><strong className="block text-[#171717] mb-1">02 · Check</strong>Explicit clinical rules in a deterministic policy engine</div>
+          <div className="rounded-lg border border-[#e5e5e5] bg-white p-4"><strong className="block text-[#171717] mb-1">03 · Review</strong>Decision, issues, and a nurse-readable audit trail</div>
+        </div>
+        <h2 className="text-xl font-bold text-[#171717] font-display mt-8">Engineering decisions</h2>
+        <p>I kept date math, unit conversion, medication classification, and procedure matching in code. The system verifies extracted quotes against the chart and sends uncertain or malformed findings to review instead of silently clearing them. Each issue records the rule, supporting source, and reason for follow-up.</p>
+        <h2 className="text-xl font-bold text-[#171717] font-display mt-8">Evaluation</h2>
+        <p>On a 50-case labeled evaluation set, the final pipeline matched all reference decisions and issue categories on both tested models. I also tested repeated-run consistency and policy edge cases. These are evaluation-set results for a prototype, not a clinical deployment or validation study.</p>
+      </div>
+    )
+  },
+  {
+    title: "Virtual Staining with U-Net",
+    description: "Trained and evaluated U-Net models that predict fluorescent microscopy channels from brightfield z-stacks, comparing model size, loss, and training choices.",
+    tags: ["PyTorch", "U-Net", "Microscopy", "Model Evaluation"],
+    image: "/someshsaini/images/projects/virtual-staining-l2-panel.jpg",
+    content: (
+      <div className="space-y-6 text-[#404040]">
+        <h2 className="text-xl font-bold text-[#171717] font-display">Goal and contribution</h2>
+        <p>I built a U-Net training and evaluation workflow for virtual staining: predicting green and blue fluorescence from 13 brightfield focal planes. I prepared paired image crops, trained models, selected checkpoints on held-out validation fields, and packaged the selected models for the shared inference pipeline.</p>
+        <h2 className="text-xl font-bold text-[#171717] font-display mt-8">Approaches I tested</h2>
+        <p>I compared an initial U-Net with smaller and wider/deeper variants, MSE versus L1 loss, and training changes including rotation augmentation, a cosine learning-rate schedule, and exponential moving average weights. I recorded validation quality, parameter count, and training time to make the quality–compute tradeoff visible.</p>
+        <figure className="rounded-lg border border-[#e5e5e5] bg-white p-3">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/someshsaini/images/projects/virtual-staining-tradeoff.png" alt="Validation error and training time plotted against U-Net parameter count" width="1320" height="560" loading="lazy" decoding="async" className="w-full h-auto" />
+          <figcaption className="text-xs text-[#737373] mt-2">Model size, validation error, and training time. Timing comparisons across the first and second rounds use different batch sizes.</figcaption>
+        </figure>
+        <h2 className="text-xl font-bold text-[#171717] font-display mt-8">Held-out results</h2>
+        <p>The larger selected model reached mean MSE of 0.00461 (green) and 0.00216 (blue), with SSIM of 0.777 and 0.928, across three held-out test wells. Its scores were close to the dataset&apos;s published reference predictions. With only three test wells and one training seed, I treat that comparison as descriptive rather than a claim of superiority.</p>
+        <figure className="rounded-lg border border-[#e5e5e5] bg-white p-3">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/someshsaini/images/projects/virtual-staining-l2-panel.jpg" alt="Brightfield input, measured fluorescence, U-Net predictions, and error maps for one held-out well" width="1600" height="680" loading="lazy" decoding="async" className="w-full h-auto" />
+          <figcaption className="text-xs text-[#737373] mt-2">One held-out well: brightfield input, measured fluorescence, predicted fluorescence, and absolute error.</figcaption>
+        </figure>
+        <figure className="rounded-lg border border-[#e5e5e5] bg-white p-3">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/someshsaini/images/projects/virtual-staining-test-results.png" alt="Per-well test error and structural similarity for selected U-Net models and reference predictions" width="1440" height="520" loading="lazy" decoding="async" className="w-full h-auto" />
+          <figcaption className="text-xs text-[#737373] mt-2">Per-well test quality for selected models, a constant baseline, and the dataset reference predictions.</figcaption>
+        </figure>
+        <p>I also checked full-field tiled inference against direct inference, verified saved image values against float predictions, and documented a visible tile-boundary limitation in the deeper model.</p>
+      </div>
+    )
+  },
+  {
     title: "Vocalis Platform",
     description: "An AI tool startup for community-based medium-sized clinics. Backed by NSF I-Corps, Google Cloud, and the Veale Institute for Entrepreneurship.",
     tags: ["Entrepreneurship", "Healthcare", "AI/ML"],
