@@ -33,8 +33,35 @@ const projects: Project[] = [
         </div>
         <h2 className="text-xl font-bold text-[#171717] font-display mt-8">Engineering decisions</h2>
         <p>I kept date math, unit conversion, medication classification, and procedure matching in code. The system verifies extracted quotes against the chart and sends uncertain or malformed findings to review instead of silently clearing them. Each issue records the rule, supporting source, and reason for follow-up.</p>
+        <p>I also spoke with an electrophysiology clinic stakeholder about day-of-surgery gaps such as missed fasting instructions and anticoagulant hold windows. I used that feedback to add informational nurse checks to the audit trail while keeping scheduling decisions bound to the explicit policy.</p>
         <h2 className="text-xl font-bold text-[#171717] font-display mt-8">Evaluation</h2>
         <p>On a 50-case labeled evaluation set, the final pipeline matched all reference decisions and issue categories on both tested models. I also tested repeated-run consistency and policy edge cases. These are evaluation-set results for a prototype, not a clinical deployment or validation study.</p>
+        <h2 className="text-xl font-bold text-[#171717] font-display mt-8">Model and caching comparison</h2>
+        <p>I compared the baseline approach with my two-layer pipeline on the same 50 labeled cases. I kept instructions and schema in a stable, roughly 2,100-token prompt prefix with a versioned cache key, then placed case-specific details afterward. That layout reuses input across cases while the policy engine makes the final decision from verified facts.</p>
+        <div className="overflow-x-auto rounded-lg border border-[#e5e5e5] bg-white" role="region" aria-label="Pre-op triage model comparison" tabIndex={0}>
+          <table className="w-full min-w-[720px] border-collapse text-[12px] leading-relaxed text-[#404040]">
+            <caption className="sr-only">Comparison of two models using the baseline approach and the two-layer pre-op triage pipeline on 50 labeled cases</caption>
+            <thead className="bg-[#f5f7f6] text-[#171717]">
+              <tr>
+                <th scope="col" className="w-[190px] border-b border-[#e5e5e5] p-3 text-left font-semibold">50-case comparison</th>
+                <th scope="col" className="border-b border-[#e5e5e5] p-3 text-left font-semibold">gpt-4.1-mini<br />Baseline</th>
+                <th scope="col" className="border-b border-[#e5e5e5] bg-[#eaf2ee] p-3 text-left font-semibold">gpt-4.1-mini<br />My pipeline</th>
+                <th scope="col" className="border-b border-[#e5e5e5] p-3 text-left font-semibold">gpt-5.6-luna<br />Baseline</th>
+                <th scope="col" className="border-b border-[#e5e5e5] bg-[#eaf2ee] p-3 text-left font-semibold">gpt-5.6-luna<br />My pipeline</th>
+              </tr>
+            </thead>
+            <tbody className="[&>tr:not(:last-child)]:border-b [&>tr:not(:last-child)]:border-[#ededed] [&_td]:p-3 [&_th]:p-3">
+              <tr><th scope="row" className="text-left font-medium">Evaluation score</th><td>74.67%</td><td className="bg-[#f6faf7] font-semibold">100%</td><td>97.33%</td><td className="bg-[#f6faf7] font-semibold">100%</td></tr>
+              <tr><th scope="row" className="text-left font-medium">Byte-identical across 3 runs</th><td>—</td><td className="bg-[#f6faf7]">36 / 50</td><td>—</td><td className="bg-[#f6faf7]">50 / 50</td></tr>
+              <tr><th scope="row" className="text-left font-medium">Cached input, new / repeat</th><td>4.0% / —</td><td className="bg-[#f6faf7]">44% / 79%</td><td>0% / —</td><td className="bg-[#f6faf7]">54% / 99.9%</td></tr>
+              <tr><th scope="row" className="text-left font-medium">Reasoning / output tokens per case</th><td>0 / 234</td><td className="bg-[#f6faf7]">0 / 633</td><td>145 / 297</td><td className="bg-[#f6faf7]">0 / 511</td></tr>
+              <tr><th scope="row" className="text-left font-medium">Median call latency</th><td>2.1 s</td><td className="bg-[#f6faf7]">4.3 s</td><td>3.3 s</td><td className="bg-[#f6faf7]">3.8 s</td></tr>
+              <tr><th scope="row" className="text-left font-medium">Estimated cost / 1,000, new / repeat</th><td>$1.55 / —</td><td className="bg-[#f6faf7]">$2.04 / $1.62</td><td>$0.96 / —</td><td className="bg-[#f6faf7]">$1.01 / $0.70</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p className="text-sm text-[#737373]">The final gpt-4.1-mini pipeline scored 100% after an earlier 96% run exposed a quote-validation edge case. New and repeat figures come from the recorded usage replays; costs are estimates from measured tokens and the model prices recorded with the project, not current quotes. A dash means repeat traffic was not measured for that baseline.</p>
+        <a href="https://github.com/sainisomesh/preop-triage#measured-comparison" target="_blank" rel="noopener noreferrer" className="inline-block text-sm font-semibold text-[#37574e] underline underline-offset-4 hover:text-[#171717]">View the comparison and results on GitHub ↗</a>
       </div>
     )
   },
