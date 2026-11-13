@@ -9,7 +9,7 @@ const experiences = [
     role: "Research & Development Engineer (Personal Health Care)",
     org: "Procter & Gamble",
     logoUrl: "/someshsaini/images/P&G logo.jpeg",
-    period: "May 2026 - Present",
+    period: "May 2026 - Aug 2026",
     description: [
       "Engineered orchestrated multi-agent AI workflows for Personal Health Care R&D, integrating experimental, biomarker, and consumer health datasets to autonomously generate product insights.",
       "Built scalable ML and agentic decision-support systems for health research, enabling automated detection of safety signals."
