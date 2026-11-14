@@ -19,7 +19,7 @@ const interestsData = [
   {
     title: "Mowing Lawns",
     story: "Mowing lawns was mostly something my dad made me do before he'd let me drive a real car, but those early mornings ultimately sparked my interest in creating simple, elegant, and direct designs—a philosophy I carry into everything I build today.",
-    image: "https://images.unsplash.com/photo-1592424001807-6c243883a9d2?auto=format&fit=crop&q=80&w=800"
+    image: "/someshsaini/images/mowing_lawns.jpg"
   }
 ];
 
@@ -53,7 +53,7 @@ function InterestItem({ interest }: { interest: typeof interestsData[0] }) {
               <div className="flex flex-col md:flex-row gap-5 mt-4">
                 <div className="w-full md:w-1/3 aspect-video md:aspect-square relative rounded-lg overflow-hidden shrink-0 border border-[rgba(0,0,0,0.06)]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={interest.image} alt={interest.title} className="w-full h-full object-cover" />
+                  <img src={interest.image} alt={interest.title} loading="lazy" decoding="async" className="w-full h-full object-cover" />
                 </div>
                 <div className="text-[14px] text-[#404040] leading-relaxed flex flex-col justify-center">
                   <p>{interest.story}</p>
