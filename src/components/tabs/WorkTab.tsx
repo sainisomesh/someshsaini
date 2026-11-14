@@ -38,29 +38,40 @@ const projects: Project[] = [
         <p>On a 50-case labeled evaluation set, the final pipeline matched all reference decisions and issue categories on both tested models. I also tested repeated-run consistency and policy edge cases. These are evaluation-set results for a prototype, not a clinical deployment or validation study.</p>
         <h2 className="text-xl font-bold text-[#171717] font-display mt-8">Model and caching comparison</h2>
         <p>I compared the baseline approach with my two-layer pipeline on the same 50 labeled cases. I kept instructions and schema in a stable, roughly 2,100-token prompt prefix with a versioned cache key, then placed case-specific details afterward. That layout reuses input across cases while the policy engine makes the final decision from verified facts.</p>
-        <div className="overflow-x-auto rounded-lg border border-[#e5e5e5] bg-white" role="region" aria-label="Pre-op triage model comparison" tabIndex={0}>
-          <table className="w-full min-w-[720px] border-collapse text-[12px] leading-relaxed text-[#404040]">
-            <caption className="sr-only">Comparison of two models using the baseline approach and the two-layer pre-op triage pipeline on 50 labeled cases</caption>
-            <thead className="bg-[#f5f7f6] text-[#171717]">
-              <tr>
-                <th scope="col" className="w-[190px] border-b border-[#e5e5e5] p-3 text-left font-semibold">50-case comparison</th>
-                <th scope="col" className="border-b border-[#e5e5e5] p-3 text-left font-semibold">gpt-4.1-mini<br />Baseline</th>
-                <th scope="col" className="border-b border-[#e5e5e5] bg-[#eaf2ee] p-3 text-left font-semibold">gpt-4.1-mini<br />My pipeline</th>
-                <th scope="col" className="border-b border-[#e5e5e5] p-3 text-left font-semibold">gpt-5.6-luna<br />Baseline</th>
-                <th scope="col" className="border-b border-[#e5e5e5] bg-[#eaf2ee] p-3 text-left font-semibold">gpt-5.6-luna<br />My pipeline</th>
-              </tr>
-            </thead>
-            <tbody className="[&>tr:not(:last-child)]:border-b [&>tr:not(:last-child)]:border-[#ededed] [&_td]:p-3 [&_th]:p-3">
-              <tr><th scope="row" className="text-left font-medium">Evaluation score</th><td>74.67%</td><td className="bg-[#f6faf7] font-semibold">100%</td><td>97.33%</td><td className="bg-[#f6faf7] font-semibold">100%</td></tr>
-              <tr><th scope="row" className="text-left font-medium">Byte-identical across 3 runs</th><td>—</td><td className="bg-[#f6faf7]">36 / 50</td><td>—</td><td className="bg-[#f6faf7]">50 / 50</td></tr>
-              <tr><th scope="row" className="text-left font-medium">Cached input, new / repeat</th><td>4.0% / —</td><td className="bg-[#f6faf7]">44% / 79%</td><td>0% / —</td><td className="bg-[#f6faf7]">54% / 99.9%</td></tr>
-              <tr><th scope="row" className="text-left font-medium">Reasoning / output tokens per case</th><td>0 / 234</td><td className="bg-[#f6faf7]">0 / 633</td><td>145 / 297</td><td className="bg-[#f6faf7]">0 / 511</td></tr>
-              <tr><th scope="row" className="text-left font-medium">Median call latency</th><td>2.1 s</td><td className="bg-[#f6faf7]">4.3 s</td><td>3.3 s</td><td className="bg-[#f6faf7]">3.8 s</td></tr>
-              <tr><th scope="row" className="text-left font-medium">Estimated cost / 1,000, new / repeat</th><td>$1.55 / —</td><td className="bg-[#f6faf7]">$2.04 / $1.62</td><td>$0.96 / —</td><td className="bg-[#f6faf7]">$1.01 / $0.70</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p className="text-sm text-[#737373]">The final gpt-4.1-mini pipeline scored 100% after an earlier 96% run exposed a quote-validation edge case. New and repeat figures come from the recorded usage replays; costs are estimates from measured tokens and the model prices recorded with the project, not current quotes. A dash means repeat traffic was not measured for that baseline.</p>
+        <figure className="my-7 border-y border-[#292929] bg-white py-4 md:-mx-12">
+          <figcaption className="mb-4 font-serif text-[15px] leading-snug text-[#171717]">
+            <span className="font-bold">Table 1.</span> Model performance and resource use in pre-operative triage (50 labeled cases).
+          </figcaption>
+          <div className="overflow-x-auto focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#525252]" role="region" aria-label="Scroll to view the full pre-op triage comparison table" tabIndex={0}>
+            <table className="w-full min-w-[780px] border-collapse border-y-2 border-[#292929] font-serif text-[13px] leading-snug text-[#303030] tabular-nums" aria-describedby="preop-table-note">
+              <caption className="sr-only">Comparison of baseline and two-layer pipeline results for gpt-4.1-mini and gpt-5.6-luna</caption>
+              <thead className="text-[#171717]">
+                <tr className="border-b border-[#999]">
+                  <th scope="col" rowSpan={2} className="w-[230px] px-2 py-2 text-left align-bottom font-semibold">Measure</th>
+                  <th scope="colgroup" colSpan={2} className="px-2 py-2 text-center font-semibold">gpt-4.1-mini</th>
+                  <th scope="colgroup" colSpan={2} className="px-2 py-2 text-center font-semibold">gpt-5.6-luna</th>
+                </tr>
+                <tr className="border-b border-[#292929] text-[12px]">
+                  <th scope="col" className="px-2 py-2 text-right font-medium">Baseline</th>
+                  <th scope="col" className="px-2 py-2 text-right font-medium">Two-layer pipeline</th>
+                  <th scope="col" className="px-2 py-2 text-right font-medium">Baseline</th>
+                  <th scope="col" className="px-2 py-2 text-right font-medium">Two-layer pipeline</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-[#e0e0e0] [&_td]:whitespace-nowrap [&_td]:px-2 [&_td]:py-2.5 [&_td]:text-right [&_th]:px-2 [&_th]:py-2.5">
+                <tr><th scope="row" className="text-left font-normal">Evaluation score</th><td>74.67%</td><td className="font-bold">100%</td><td>97.33%</td><td className="font-bold">100%</td></tr>
+                <tr><th scope="row" className="text-left font-normal">Byte-identical across 3 runs</th><td>—</td><td>36 / 50</td><td>—</td><td>50 / 50</td></tr>
+                <tr><th scope="row" className="text-left font-normal">Cached input, new / repeat</th><td>4.0% / —</td><td>44% / 79%</td><td>0% / —</td><td>54% / 99.9%</td></tr>
+                <tr><th scope="row" className="text-left font-normal">Reasoning / output tokens per case</th><td>0 / 234</td><td>0 / 633</td><td>145 / 297</td><td>0 / 511</td></tr>
+                <tr><th scope="row" className="text-left font-normal">Median call latency</th><td>2.1 s</td><td>4.3 s</td><td>3.3 s</td><td>3.8 s</td></tr>
+                <tr><th scope="row" className="text-left font-normal">Estimated cost / 1,000, new / repeat</th><td>$1.55 / —</td><td>$2.04 / $1.62</td><td>$0.96 / —</td><td>$1.01 / $0.70</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p id="preop-table-note" className="mt-3 text-[12px] leading-relaxed text-[#5f5f5f]">
+            <span className="font-semibold">Note.</span> The final gpt-4.1-mini pipeline scored 100% after an earlier 96% run exposed a quote-validation edge case. Cache and cost figures are from recorded usage replays; costs extrapolate measured tokens using the prices recorded with the project. A dash denotes a measure not reported for that baseline. These results describe a 50-case evaluation, not clinical validation.
+          </p>
+        </figure>
         <a href="https://github.com/sainisomesh/preop-triage#measured-comparison" target="_blank" rel="noopener noreferrer" className="inline-block text-sm font-semibold text-[#37574e] underline underline-offset-4 hover:text-[#171717]">View the comparison and results on GitHub ↗</a>
       </div>
     )
